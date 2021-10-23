@@ -1,0 +1,16 @@
+{
+    "name": "my-app",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "my-app",
+    "extensions": [
+		"editorconfig.editorconfig"
+	],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "composer install && npm install && composer run post-root-package-install && composer run post-create-project-cmd",
+    "workspaceFolder": "/app",
+    "shutdownAction": "stopCompose"
+}
