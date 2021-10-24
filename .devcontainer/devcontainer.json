@@ -36,8 +36,10 @@
         "felipecaputo.git-project-manager",
         "christian-kohler.npm-intellisense",
         "dbaeumer.vscode-eslint",
-        "DotJoshJohnson.xml"
-	],
+        "DotJoshJohnson.xml",
+        "eamodio.gitlens",
+        "GitHub.vscode-pull-request-github"
+    ],
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
