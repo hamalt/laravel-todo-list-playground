@@ -24,4 +24,20 @@ services:
       - 3000:3000
     volumes:
       - ./:/app
+      - ./docker/xdebug.ini:/opt/bitnami/php/etc/conf.d/xdebug.ini
+      - ./docker/custom_php.ini:/opt/bitnami/php/etc/conf.d/custom_php.ini
+      - ./docker/mhsendmail:/usr/local/bin/mhsendmail
     # privileged: true # Privileged mode could be required to run this container under Windows
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+    - "3025:8025"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "3080:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=${DB_HOST}
+      - PMA_USER=${DB_USERNAME}
+      - PMA_PASSWORD=${DB_PASSWORD}
