@@ -9,7 +9,9 @@ class TodoList extends Model
 {
     use HasFactory;
 
-    protected $todo_list = [
-        'complete' => 'boolean'
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at'
     ];
 }

@@ -94,10 +94,12 @@ class TodoListController extends Controller
         // DBよりURIパラメータと同じIDを持つTodo Listの情報を取得
         $todo_list = TodoList::findOrFail($id);
 
-        // 値を再設定
-        $todo_list->title = $request->title;
-        $todo_list->description = $request->description;
-        $todo_list->complete = $request->complete;
+        // 項目の値を更新
+        $todo_list->fill([
+            'title' => $request->title,
+            'description' => $request->description,
+            'complete' => $request->complete
+        ]);
 
         // 値をDBに保存
         $todo_list->save();
