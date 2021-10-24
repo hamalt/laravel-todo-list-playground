@@ -5,7 +5,32 @@
     ],
     "service": "myapp",
     "extensions": [
-		"editorconfig.editorconfig"
+        "bmewburn.vscode-intelephense-client",
+        "felixfbecker.php-debug",
+        "onecentlin.laravel-extension-pack",
+        "editorconfig.editorconfig",
+        "onecentlin.laravel-blade",
+        "austenc.laravel-blade-spacer",
+        "ryannaddy.laravel-artisan",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "stef-k.laravel-goto-controller",
+        "codingyu.laravel-goto-view",
+        "mikestead.dotenv",
+        "neilbrayfield.php-docblocker",
+        "MehediDracula.php-namespace-resolver",
+        "marabesi.php-import-checker",
+        "oderwat.indent-rainbow",
+        "streetsidesoftware.code-spell-checker",
+        "pranaygp.vscode-css-peek",
+        "pranaygp.vscode-css-peek",
+        "nickdemayo.vscode-json-editor",
+        "MS-vsliveshare.vsliveshare",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "mechatroner.rainbow-csv",
+        "shardulm94.trailing-spaces",
+        "mosapride.zenkaku",
+        "felixfbecker.php-intellisense"
 	],
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
