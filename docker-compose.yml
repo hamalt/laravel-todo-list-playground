@@ -12,7 +12,9 @@ services:
 
   myapp:
     tty: true
-    image: docker.io/bitnami/laravel:8
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile
     environment:
       - DB_HOST=mariadb
       - DB_USERNAME=my_user
@@ -24,9 +26,9 @@ services:
       - 3000:3000
     volumes:
       - ./:/app
-      - ./docker/xdebug.ini:/opt/bitnami/php/etc/conf.d/xdebug.ini
-      - ./docker/custom_php.ini:/opt/bitnami/php/etc/conf.d/custom_php.ini
-      - ./docker/mhsendmail:/usr/local/bin/mhsendmail
+      - ./.docker/xdebug.ini:/opt/bitnami/php/etc/conf.d/xdebug.ini
+      - ./.docker/custom_php.ini:/opt/bitnami/php/etc/conf.d/custom_php.ini
+      - ./.docker/mhsendmail:/usr/local/bin/mhsendmail
     # privileged: true # Privileged mode could be required to run this container under Windows
   mailhog:
     image: mailhog/mailhog
