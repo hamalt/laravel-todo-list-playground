@@ -15,6 +15,8 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
+            @include('todolist/message')
+
             @if($target === 'store')
             <form action="{{ route('todolist.index') }}" method="post">
             @elseif($target === 'update')

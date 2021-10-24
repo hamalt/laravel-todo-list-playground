@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TodoListRequest;
 use App\Models\TodoList;
 
 class TodoListController extends Controller
@@ -36,10 +36,10 @@ class TodoListController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\TodoListRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TodoListRequest $request)
     {
         //
         $todo_list = new TodoList();
@@ -85,25 +85,21 @@ class TodoListController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\TodoListRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TodoListRequest $request, $id)
     {
         // DBよりURIパラメータと同じIDを持つTodo Listの情報を取得
         $todo_list = TodoList::findOrFail($id);
-        $complete = $todo_list->complete;
 
+        // 値を再設定
         $todo_list->title = $request->title;
         $todo_list->description = $request->description;
+        $todo_list->complete = $request->complete;
 
-        if (NULL === $request->complete) {
-            $todo_list->complete = 0;
-        } else {
-            $todo_list->complete = 1;
-        }
-
+        // 値をDBに保存
         $todo_list->save();
 
         return redirect()->route('todolist.index');
